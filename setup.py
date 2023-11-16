@@ -365,7 +365,7 @@ class SetUp():
         
         return INITFILE
         
-    def getDiffusionAdvectionRE(self, dBB=0, t=None, r=None, nt=100, nr=99, TaylorOrder=7):
+    def getDiffusionAdvectionRE(self, dBB=0, t=None, r=None, nt=100, nr=99):
         """
         Assume safety profile q=1 everywhere in the plasma, and that 
         all RE move parallel to the magnetic field with lightspeed v=c.
@@ -383,8 +383,6 @@ class SetUp():
         nr, nt : int, optional, defaults to 100
             Radial and time grid resolution to use if r and/or t are/is 
             None.
-        TaylorOrder : int, optional, defaults to 7
-            Order of Taylor expansion used to evaluate A. Max 7.
             
         Returns
         -------
@@ -403,15 +401,7 @@ class SetUp():
         t, r, dBB = self.getArrays(coeff=dBB, t=t, r=r, nr=nr, nt=nt)
         
         D = pi*self.R0*c*dBB**2
-
-        # 7th order Taylor expansion in epsilon=r/R0 or <B/Bmin> results in:
-        if TaylorOrder > 7: 
-            TaylorOrder = 7; print("WARNING: Max TaylorOrder = 7")
-        c1 = np.array([1,1,1.5,1.5,3.75 ,3.75 ,2.1875 ,2.1875 ])[:TaylorOrder+1]
-        c2 = np.array([1,1,0.5,0.5,0.375,0.375,0.15625,0.15625])[:TaylorOrder+1]
-        
-        A = -D/self.R0*np.polyval(np.flip(c1), r/self.R0) \
-            /np.polyval(np.flip(c2), r/self.R0)
+        A = -D*self.R0/(self.R0**2+r**2)
         
         return t, r, dBB, D, A
 
