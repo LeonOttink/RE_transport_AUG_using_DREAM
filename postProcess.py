@@ -299,7 +299,7 @@ def dBB_plot_FULL(filename_constant='DATA/dBB/IpData_constant.txt',filename_edge
     plt.savefig('dBB_parameter_plots.pdf')
     plt.show()
     
-def SSF_plot_FULL(outfile='DATA/SSF/tcoscan0_output_9.h5',SFF_file='DATA/SSF/SSF_data.txt'):
+def SSF_plot_FULL(outfile='DATA/dBB/constant/tcoscan0_output_9.h5',SFF_file='DATA/SSF/SSF_data.txt'):
     unpert = np.genfromtxt('DATA/SSF/no_perturbation.txt')
     do = DREAMOutput(outfile)
     Nre = do.grid.integrate(do.eqsys.n_re[:])*do.grid.R0[0]
