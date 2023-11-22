@@ -6,4 +6,4 @@ The code consists of three core files and some sublimentary code:
 - `setup.py`: setup of DREAM and other settings,
 - `userInpur.py`: parameters and profiles to be tuned by the user based on the simulated scenario. Many of these parameters can also be changed for a single simulation by using terminal commands.
 
-Additionally, `postProcess.py` contains most the code used for making the plots in the internship report, and finally `GeriMap.py` provides the matplotlib colormap used for many plots, which is copied from the [DREAM directory](https://github.com/chalmersplasmatheory/DREAM).
+Additionally, `postProcess.py` contains the code used for making the plots in the internship report and for computing the SSF's given the proper DREAM output files, and finally `GeriMap.py` provides the matplotlib colormap used for many plots, which is copied from the [DREAM directory](https://github.com/chalmersplasmatheory/DREAM).
