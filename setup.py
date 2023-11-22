@@ -400,8 +400,8 @@ class SetUp():
         """
         t, r, dBB = self.getArrays(coeff=dBB, t=t, r=r, nr=nr, nt=nt)
         
-        D = pi*self.R0*c*dBB**2
-        A = -D*self.R0/(self.R0**2+r**2)
+        D = pi*self.R0*c*dBB**2        
+        A = -D/(self.R0+r)
         
         return t, r, dBB, D, A
 

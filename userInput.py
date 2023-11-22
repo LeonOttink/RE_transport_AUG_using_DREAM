@@ -2,10 +2,10 @@ import numpy as np
 
 ###########################################################################
 # TODO: Change these for your simulation
-param = ''
-unit  = ''
-scan  = ''
-scan_list = []
+param = ''     # Match one of the command line parameters as set in disrupt
+unit  = ''     # Unit of parameter for headers
+scan  = ''     # Scan number for file naming
+scan_list = [] # Scan list of values for param to loop over
 ###########################################################################
 
 ## Plasma parameters
